@@ -42,3 +42,51 @@ You can train the bot using:
 
 ## 📁 Project Structure
 
+```
+/project-root
+│
+├── static/              # (Optional) for custom CSS or JS
+├── templates/
+│   └── index.html       # Chat UI
+├── training_data/
+│   └── about_me.json    # Custom training data
+├── app.py               # Main Flask app
+├── README.md
+```
+
+## 📦 Installation
+
+1. Clone the repository:
+   ```
+   git clone https://github.com/your-username/your-repo-name.git
+   cd your-repo-name
+   ```
+
+2. Create a virtual environment and install dependencies:
+   ```
+   python -m venv venv
+   source venv/bin/activate  # On Windows use `venv\Scripts\activate`
+   pip install -r requirements.txt
+   ```
+
+3. Run the application:
+   ```
+   python app.py
+   ```
+
+4. Open your browser and go to `http://127.0.0.1:5000/`
+
+## ✨ Demo
+
+![Chat UI Screenshot](./screenshots/chat_ui.png)
+
+## 🙋‍♂️ About Me
+
+**Lakindu Ravishka**  
+Graduated Software Engineer | Freelancer  
+Based in Matara, Sri Lanka 🌴  
+Contact: [your email or website link]
+
+---
+
+```
