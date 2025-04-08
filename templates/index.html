@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AI Chatbot</title>
+  <script src="https://code.jquery.com/jquery-3.7.1.js"
+          integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" 
+          crossorigin="anonymous"></script>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: radial-gradient(circle at top left, #121212, #1f1f1f);
+      color: #fff;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+    }
+
+    .chat-container {
+      width: 400px;
+      background: #1e1e2f;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #00ffff;
+      margin-bottom: 20px;
+      font-size: 24px;
+    }
+
+    #chatbox {
+      background-color: #2a2a3d;
+      padding: 15px;
+      border-radius: 10px;
+      height: 300px;
+      overflow-y: auto;
+      margin-bottom: 15px;
+    }
+
+    .botText, .userText {
+      margin: 10px 0;
+    }
+
+    .botText span {
+      background: #00c0ff;
+      color: #000;
+      padding: 10px 15px;
+      border-radius: 20px;
+      display: inline-block;
+      max-width: 75%;
+    }
+
+    .userText {
+      text-align: right;
+    }
+
+    .userText span {
+      background: #7f00ff;
+      color: #fff;
+      padding: 10px 15px;
+      border-radius: 20px;
+      display: inline-block;
+      max-width: 75%;
+    }
+
+    #userInput {
+      display: flex;
+      gap: 10px;
+    }
+
+    #textInput {
+      flex: 1;
+      padding: 10px;
+      border-radius: 20px;
+      border: 1px solid #555;
+      background: #2a2a3d;
+      color: #fff;
+      outline: none;
+    }
+
+    #buttonInput {
+      background-color: #00ffff;
+      color: #000;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    #buttonInput:hover {
+      background-color: #00e6e6;
+    }
+
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #444;
+      border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: transparent;
+    }
+  </style>
+</head>
+<body>
+  <div class="chat-container">
+    <h1>🤖 AI Chatbot</h1>
+
+    <div id="chatbox">
+      <p class="botText"><span>Hello! Ask me anything about.</span></p>
+    </div>
+
+    <div id="userInput">
+      <input id="textInput" type="text" name="userMessage" placeholder="Type your message..." />
+      <input id="buttonInput" type="submit" value="Send" />
+    </div>
+  </div>
+
+  <script>
+    function getUserResponse() {
+      var userText = $('#textInput').val();
+      if (!userText) return;
+
+      var userHTML = "<p class='userText'><span>" + userText + "</span></p>";
+      $('#textInput').val("");
+      $('#chatbox').append(userHTML);
+      document.getElementById("chatbox").scrollTop = document.getElementById("chatbox").scrollHeight;
+
+      $.get("/get", { userMessage: userText }).done(function(data) {
+        var botHTML = "<p class='botText'><span>" + data + "</span></p>";
+        $('#chatbox').append(botHTML);
+        document.getElementById("chatbox").scrollTop = document.getElementById("chatbox").scrollHeight;
+      });
+    }
+
+    $("#textInput").keypress(function(e) {
+      if (e.which == 13) {
+        getUserResponse();
+      }
+    });
+
+    $('#buttonInput').click(function() {
+      getUserResponse();
+    });
+  </script>
+</body>
+</html>
