@@ -1,4 +1,4 @@
-# Lakindu's AI Chatbot
+# AI Chatbot
 
 A personalized AI-powered chatbot built using **Python**, **Flask**, and **ChatterBot**, designed to serve as a virtual assistant for **Lakindu Ravishka**, a freelance software engineer based in Matara, Sri Lanka.
 
