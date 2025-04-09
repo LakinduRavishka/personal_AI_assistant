@@ -78,7 +78,7 @@ You can train the bot using:
 
 ## ✨ Demo
 
-![Chat UI Screenshot](./images/Screenshot (35).png.png)
+<img src="./images/Screenshot-35.png" alt="Chat UI Screenshot" width="600"/>
 
 ## 🙋‍♂️ About Me
 
