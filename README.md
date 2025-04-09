@@ -85,7 +85,7 @@ You can train the bot using:
 **Lakindu Ravishka**  
 Graduated Software Engineer | Freelancer  
 Based in Matara, Sri Lanka 🌴  
-Contact: [your email or website link]
+Contact: (lakinduravishka99@gmail.com)
 
 ---
 
